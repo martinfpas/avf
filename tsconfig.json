@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "resolveJsonModule": true,    
     "allowJs": true,
     "esModuleInterop": true,
     "sourceMap": true,
@@ -9,7 +10,8 @@
       "dom",
       "es2017"
     ],
-    "outDir": "./build"
+    "outDir": "./build",
+    "types": ["node", "jest", "@testing-library/jest-dom"],
   },
   "exclude": ["build"]
 }

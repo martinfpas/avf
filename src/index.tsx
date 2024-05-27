@@ -1,7 +1,20 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import { App } from './app';
+import { QueryClient, QueryClientProvider } from "react-query";
 
-document.addEventListener('DOMContentLoaded', () => {
-    ReactDOM.render((<App />), document.getElementById('reactMountPoint'));
+const queryClient = new QueryClient({
+    defaultOptions: {
+        queries: {
+            refetchOnWindowFocus: false,
+            refetchOnMount: false,
+            retry: 1,
+        },
+    },
 });
+
+
+ReactDOM.createRoot(document.getElementById('reactMountPoint')!).render(
+    <QueryClientProvider client={queryClient}><App /></QueryClientProvider>
+);
+
